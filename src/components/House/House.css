@@ -1,0 +1,10 @@
+.housecard {
+  height: 30vh;
+  width: 35vw;
+  border: 1px solid black;
+}
+
+.pic {
+  width: 20vw;
+  height: 15vh;
+}
