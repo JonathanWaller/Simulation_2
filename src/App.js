@@ -5,18 +5,23 @@ import "./App.css";
 // import Wizard from "./components/Wizard/Wizard";
 import Header from "./components/Header/Header";
 import routes from "./routes.js";
+import store from "./ducks/store.js";
+
+import { Provider } from "react-redux";
 
 class App extends Component {
   render() {
     return (
-      <HashRouter>
-        <div className="App">
-          <Header />
-          {routes}
-          {/* <Dashboard />
+      <Provider store={store}>
+        <HashRouter>
+          <div className="App">
+            <Header />
+            {routes}
+            {/* <Dashboard />
           <Wizard /> */}
-        </div>
-      </HashRouter>
+          </div>
+        </HashRouter>
+      </Provider>
     );
   }
 }

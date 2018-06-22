@@ -9,55 +9,55 @@ import Step3 from "../Steps/Step3";
 class Wizard extends Component {
   constructor() {
     super();
-    this.state = {
-      name: "",
-      address: "",
-      city: "",
-      state: "",
-      zipcode: 0,
-      image_url: ""
-    };
+    // this.state = {
+    //   name: "",
+    //   address: "",
+    //   city: "",
+    //   state: "",
+    //   zipcode: 0,
+    //   image_url: ""
+    // };
   }
 
-  nameHandler = e => {
-    this.setState({
-      name: e.target.value
-    });
-  };
+  // nameHandler = e => {
+  //   this.setState({
+  //     name: e.target.value
+  //   });
+  // };
 
-  addressHandler = e => {
-    this.setState({
-      address: e.target.value
-    });
-  };
+  // addressHandler = e => {
+  //   this.setState({
+  //     address: e.target.value
+  //   });
+  // };
 
-  cityHandler = e => {
-    this.setState({
-      city: e.target.value
-    });
-  };
+  // cityHandler = e => {
+  //   this.setState({
+  //     city: e.target.value
+  //   });
+  // };
 
-  stateHandler = e => {
-    this.setState({
-      state: e.target.value
-    });
-  };
+  // stateHandler = e => {
+  //   this.setState({
+  //     state: e.target.value
+  //   });
+  // };
 
-  zipHandler = e => {
-    this.setState({
-      zipcode: e.target.value
-    });
-  };
+  // zipHandler = e => {
+  //   this.setState({
+  //     zipcode: e.target.value
+  //   });
+  // };
 
-  picHandler = e => {
-    this.setState({
-      image_url: e.target.value
-    });
-  };
+  // picHandler = e => {
+  //   this.setState({
+  //     image_url: e.target.value
+  //   });
+  // };
 
-  completeHandler = (name, address, city, state, zip, image_url) => {
-    axios.post("/api/house", { name, address, city, state, zip, image_url });
-  };
+  //   completeHandler = (name, address, city, state, zip, image_url) => {
+  //     axios.post("/api/house", { name, address, city, state, zip, image_url });
+  //   };
 
   render() {
     return (
@@ -67,7 +67,13 @@ class Wizard extends Component {
           <button>Cancel</button>
         </Link>
 
-        <div>
+        <Switch>
+          <Route path="/wizard/step1" component={Step1} />
+          <Route path="/wizard/step2" component={Step2} />
+          <Route path="/wizard/step3" component={Step3} />
+        </Switch>
+
+        {/* <div>
           Property Name
           <input
             onChange={e => this.nameHandler(e)}
@@ -75,7 +81,6 @@ class Wizard extends Component {
             value={this.state.name}
           />
         </div>
-        {/* <p>{this.state.name}</p> */}
         <div>
           Address
           <input
@@ -84,7 +89,6 @@ class Wizard extends Component {
             value={this.state.address}
           />
         </div>
-        {/* <p>{this.state.address}</p> */}
         <div>
           City
           <input
@@ -93,7 +97,6 @@ class Wizard extends Component {
             value={this.state.city}
           />
         </div>
-        {/* <p>{this.state.city}</p> */}
         <div>
           State
           <input
@@ -102,7 +105,6 @@ class Wizard extends Component {
             value={this.state.state}
           />
         </div>
-        {/* <p>{this.state.state}</p> */}
         <div>
           Zip
           <input
@@ -118,16 +120,7 @@ class Wizard extends Component {
               value={this.state.image_url}
             />
           </div>
-          {/* <p>{this.state.image_url}</p> */}
         </div>
-        {/* <div>
-          Monthly Mortgage Amount
-          <input />
-        </div>
-        <div>
-          Desired Monthly Rent
-          <input />
-        </div> */}
         <Link to="/">
           <button
             onClick={() =>
@@ -143,12 +136,7 @@ class Wizard extends Component {
           >
             Complete
           </button>
-        </Link>
-        {/* <Switch>
-          <Route />
-          <Route />
-          <Route />
-        </Switch> */}
+        </Link> */}
       </div>
     );
   }
