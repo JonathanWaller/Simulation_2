@@ -9,9 +9,24 @@ class Dashboard extends Component {
     this.state = {
       houses: []
     };
+    this.getHouses = this.getHouses.bind(this);
+    this.deleteHouse = this.deleteHandler.bind(this);
   }
 
+  //   componentDidMount() {
+  //     axios.get("/api/houses").then(response => {
+  //       //   console.log(response);
+  //       this.setState({
+  //         houses: response.data
+  //       });
+  //     });
+  //   }
+
   componentDidMount() {
+    this.getHouses();
+  }
+
+  getHouses() {
     axios.get("/api/houses").then(response => {
       //   console.log(response);
       this.setState({
@@ -20,13 +35,18 @@ class Dashboard extends Component {
     });
   }
 
+  deleteHandler(id) {
+    axios.delete(`/api/house/${id}`);
+    this.getHouses();
+  }
+
   render() {
     // console.log(this.state.houses);
     let myHouses = this.state.houses.map(house => {
       return (
         <div key={house.id}>
           {/* <House name={house.name} /> */}
-          <House house={house} />
+          <House house={house} deleteHandler={this.deleteHandler} />
         </div>
       );
     });

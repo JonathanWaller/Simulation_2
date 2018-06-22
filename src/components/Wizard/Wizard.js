@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import axios from "axios";
+
+import Step1 from "../Steps/Step1";
+import Step2 from "../Steps/Step2";
+import Step3 from "../Steps/Step3";
 
 class Wizard extends Component {
   constructor() {
@@ -116,20 +120,35 @@ class Wizard extends Component {
           </div>
           {/* <p>{this.state.image_url}</p> */}
         </div>
-        <button
-          onClick={() =>
-            this.completeHandler(
-              this.state.name,
-              this.state.address,
-              this.state.city,
-              this.state.state,
-              this.state.zipcode,
-              this.state.image_url
-            )
-          }
-        >
-          Complete
-        </button>
+        {/* <div>
+          Monthly Mortgage Amount
+          <input />
+        </div>
+        <div>
+          Desired Monthly Rent
+          <input />
+        </div> */}
+        <Link to="/">
+          <button
+            onClick={() =>
+              this.completeHandler(
+                this.state.name,
+                this.state.address,
+                this.state.city,
+                this.state.state,
+                this.state.zipcode,
+                this.state.image_url
+              )
+            }
+          >
+            Complete
+          </button>
+        </Link>
+        {/* <Switch>
+          <Route />
+          <Route />
+          <Route />
+        </Switch> */}
       </div>
     );
   }

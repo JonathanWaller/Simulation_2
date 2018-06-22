@@ -12,7 +12,9 @@ function House(props) {
       <div>State: {props.house.city} </div>
       <div>Zip: {props.house.zip} </div>
       <img className="pic" src={props.house.image_url} alt="House" />
-      <button>Delete</button>
+      <button onClick={() => props.deleteHandler(props.house.id)}>
+        Delete
+      </button>
     </div>
   );
 }

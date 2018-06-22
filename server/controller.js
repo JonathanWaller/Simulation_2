@@ -16,5 +16,13 @@ module.exports = {
       console.log(req.body);
       return res.status(200).send(house);
     });
+  },
+
+  deleteHouse: (req, res) => {
+    let db = req.app.get("db");
+    db.delete_house([req.params.id]).then(() => {
+      console.log(req.params);
+      return res.sendStatus(200);
+    });
   }
 };
